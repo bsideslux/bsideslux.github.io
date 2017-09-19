@@ -8,6 +8,12 @@ body {
   font-size: 20px;
   color: #333333;
 }
+table {
+  width: 100%;
+}
+table, th, td {
+  border: 1px solid grey;
+}
 p {
   line-height: 1.5;
   margin: 30px 0;
