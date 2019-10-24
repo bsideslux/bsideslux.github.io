@@ -321,18 +321,55 @@
 				</div>
 
 				<!-- Separating line --> <hr>
-				<!--
+
 				<div class="talk">
-				  <a href="#TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT" id="TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"><h2>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</h2></a>
-				  <p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
-				  <p><b>Keywords</b>: KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK</p>
+				  <a href="#What_You_Most_Likely_Did_Not_Know_About_Sudo" id="What_You_Most_Likely_Did_Not_Know_About_Sudo"><h2>What You Most Likely Did Not Know About Sudo</h2></a>
+				  <p>Everybody knows sudo, right? Sudo allows a system administrator to give certain users the ability to run some commands as root while logging the executed commands and their arguments. It is installed by default on almost all Linux systems and is available for most commercial UNIX systems. Still, even system administrators often only know it is the "prefix" to use before entering a command requiring root privileges. Learn how much more this simple-looking tool can do!</p>
+				  <p>Most of the times the default configuration allows a group of users to run any commands: %wheel ALL=(ALL) ALL</p>
+				  <p>It is a good first step, better than using the root account directly. This way, you can trace who ran what commands on the system. But there are a lot more possibilities when configuring sudo, making your system more secure.</p>
+				  <p>Life is simple when you have to give access to a single user to a single command. But as soon as you have multiple users with the same access rights, it is not just shorter but also easier to maintain if you use aliases.</p>
+				  <p>For added security, you can add a hash of binaries to sudo. This way, if the binary changes for any reason, like modifying it through a successful exploit, you can prevent it from being used.</p>
+				  <p>Using sudo does not make much sense without proper logging and alerting. There are three major possibilities:</p>
+				  <ul>
+					<li>syslog: all events are logged to syslog. For additional security, collect sudo logs centrally, so a malicious user cannot delete them easily.</li>
+					<li>e-mail: sudo can send e-mail alerts on different kinds of failures</li>
+					<li>debug: in-depth logging of subsystems, mostly useful for developers</li>
+				  </ul>
+				  <p>Session recording is a fourth possibility. The terminal output can be saved in a local file and played back. You can play back what happened, even if the user started up an interactive shell.</p>
+				  <p>Instead of maintaining the sudoers file on each of your systems, you can use LDAP to configure sudo. It has some differences compared to a sudoers file, but also many advantages:</p>
+				  <ul>
+					<li>local users cannot manipulate the rules,</li>
+					<li>is easier to maintain,</li>
+					<li>goes live immediately.</li>
+				  </ul>
+				  <p>Starting with version 1.8, sudo has a plugin-based architecture. You can replace or extend sudo functionality using plugins. This way, users can keep starting applications the usual way using sudo, but have a different configuration or policy engine behind the sudo command. There are both open source and commercial plugins available. For example, the sudo_pair plugin – developed in Rust – enables monitoring and makes it possible to require interactive approval of sessions.</p>
+				  <p>As you can see, sudo has several lesser-known features that can make monitoring and access management easier for large organizations.</p>
+				  <p><b>Keywords</b>: sudo, Security Monitoring, Session Recording</p>
 				  <h3> Speaker </h3>
 				  <table class="speaker">
 					<tr>
-					  <td> <img src="talks/speakers/Walter_Abeson.jpg"> </td>
+					  <td> <img src="talks/speakers/Peter_Czanik.jpg"> </td>
 					  <td>
-						<h3>NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN</h3>
-						<p>BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</p>
+						<h3>Peter Czanik</h3>
+						<p>See Peter's biography <a href="#Peter_Czanik">below</a>.</p>
+					  </td>
+					</tr>
+				  </table>
+
+				<!-- Separating line --> <hr>
+				<!--
+				<div class="talk">
+				  <a href="#Recent_Advances_in_Cloud_Security_Monitoring" id="Recent_Advances_in_Cloud_Security_Monitoring"><h2>Recent Advances in Cloud Security Monitoring</h2></a>
+				  <p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
+				  <p><b>Keywords</b>: Cloud Security, Security Monitoring, AWS, Azure, Google Cloud, VPC Logs, Traffic Mirroring</p>
+				  <h3> Speaker </h3>
+				  <table class="speaker">
+					<tr>
+					  <td> <img src="talks/speakers/David_Szili.jpg"> </td>
+					  <td>
+						<h3>David Szili</h3>
+						<p>David Szili is a managing partner at Alzette Information Security, a consulting company based in Luxembourg. He is also an instructor at SANS Institute, teaching FOR572: Advanced Network Forensics. David has more than eight years of professional experience in penetration testing, red teaming, vulnerability assessment, vulnerability management, security monitoring, security architecture design, incident response, digital forensics, and software development.</p>
+						<p>David has two master's degrees, one in computer engineering and one in networks and telecommunication, and he has a bachelor's degree in electrical engineering. He holds several IT security certifications such as GSEC, GCFE, GCED, GCIA, GCIH, GMON, GCDA, GNFA, GPYC, GMOB, CCSK, OSCP, OSWP, and CEH. David regularly speaks at international conferences like BruCON, Hack.lu, Hacktivity, x33fcon, Nuit du Hack, BSides London, BSides Munich, BSides Stuttgart, BSidesLjubljana, BSidesBUD, Pass the SALT, Security Session, SANS @Night Talks and he is a member of the organizer team of the Security BSides Luxembourg conference.  He occasionally blogs about information security at jumpespjump.blogspot.com.</p>
 					  </td>
 					</tr>
 				  </table>
@@ -390,7 +427,7 @@
 					<tr>
 					  <td> <img src="talks/speakers/Peter_Czanik.jpg"> </td>
 					  <td>
-						<h3>Peter Czanik</h3>
+						<h3 id="Peter_Czanik">Peter Czanik</h3>
 						<p>Peter is an engineer working as an evangelist at Balabit (a One Identity business), the company that developed syslog-ng. He assists distributions in maintaining the syslog-ng package, follows bug trackers, helps users, and talks regularly at conferences (SCALE, All Things Open, FOSDEM, LOADays, and others). In his limited free time, he is interested in non-x86 architectures and works on one of his PPC or ARM machines.</p>
 					  </td>
 					</tr>
